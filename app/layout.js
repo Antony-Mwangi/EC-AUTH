@@ -105,6 +105,7 @@ export default function RootLayout({ children }) {
           <Link href="/" className="logo">BookStore</Link>
 
           <nav>
+            <Link href="/">Home</Link>
             <Link href="/register">Register</Link>
             <Link href="/cart">Cart</Link>
             <Link href="/login">Login</Link>
