@@ -1,31 +1,41 @@
-// app/api/register/route.js
 import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
-import bcrypt from "bcryptjs";
 
-export async function POST(request) {
+export async function POST(req) {
   try {
-    const { email, password } = await request.json();
+    const { email, password } = await req.json();
 
     if (!email || !password) {
-      return NextResponse.json({ error: "Please fill in all fields." }, { status: 400 });
+      return NextResponse.json(
+        { error: "All fields are required" },
+        { status: 400 }
+      );
     }
 
     await connectDB();
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return NextResponse.json({ error: "User already exists." }, { status: 400 });
+      return NextResponse.json(
+        { error: "User already exists" },
+        { status: 400 }
+      );
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await User.create({ email, password: hashedPassword });
+    await User.create({
+      email,
+      password: hashedPassword,
+    });
 
-    return NextResponse.json({ message: "User registered successfully." });
-  } catch (err) {
-    console.error("Register API error:", err);
-    return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
+    return NextResponse.json({ message: "User registered successfully" });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }
