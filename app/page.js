@@ -10,41 +10,6 @@ export default function HomePage() {
     { name: "Kids", slug: "kids" },
   ];
 
-  const featuredBooks = [
-    {
-      id: 1,
-      title: "Atomic Habits",
-      author: "James Clear",
-      price: "KSh 1,200",
-      category: "Self Help",
-      img: "/books/atomic.jpg",
-    },
-    {
-      id: 2,
-      title: "The Alchemist",
-      author: "Paulo Coelho",
-      price: "KSh 950",
-      category: "Fiction",
-      img: "/books/alchemist.jpg",
-    },
-    {
-      id: 3,
-      title: "Purpose Driven Life",
-      author: "Rick Warren",
-      price: "KSh 1,100",
-      category: "Religious",
-      img: "/books/purpose.jpg",
-    },
-    {
-      id: 4,
-      title: "Diary of a Wimpy Kid",
-      author: "Jeff Kinney",
-      price: "KSh 850",
-      category: "Kids",
-      img: "/books/wimpy.jpg",
-    },
-  ];
-
   return (
     <main>
       <style>{`
@@ -52,17 +17,16 @@ export default function HomePage() {
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
           background: #f5f6f8;
-          color: #1f2933;
+          color: #111827;
         }
 
-        /* HEADER */
         header {
-          background: #ffffff;
-          border-bottom: 1px solid #e5e7eb;
-          padding: 15px 30px;
+          background: white;
+          padding: 16px 32px;
           display: flex;
           justify-content: space-between;
           align-items: center;
+          border-bottom: 1px solid #e5e7eb;
         }
 
         .logo {
@@ -79,11 +43,10 @@ export default function HomePage() {
           font-weight: 500;
         }
 
-        /* HERO */
         .hero {
-          background: #ffffff;
-          padding: 50px 30px;
+          padding: 60px 30px;
           text-align: center;
+          background: white;
         }
 
         .hero h1 {
@@ -94,48 +57,32 @@ export default function HomePage() {
         .hero p {
           color: #6b7280;
           max-width: 600px;
-          margin: 0 auto;
+          margin: auto;
         }
 
-        /* CATEGORIES */
         .categories {
+          padding: 40px 30px;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 20px;
-          padding: 40px 30px;
         }
 
-        .category-card {
-          background: #ffffff;
+        .category {
+          background: white;
           padding: 30px;
-          text-align: center;
           border-radius: 8px;
           border: 1px solid #e5e7eb;
-          transition: 0.2s ease;
+          text-align: center;
         }
 
-        .category-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-
-        .category-card h3 {
-          margin-bottom: 10px;
-        }
-
-        .category-card a {
+        .category a {
           text-decoration: none;
           color: #2563eb;
           font-weight: bold;
         }
 
-        /* BOOKS */
-        .section {
+        .books {
           padding: 40px 30px;
-        }
-
-        .section h2 {
-          margin-bottom: 20px;
         }
 
         .grid {
@@ -144,8 +91,8 @@ export default function HomePage() {
           gap: 20px;
         }
 
-        .book-card {
-          background: #ffffff;
+        .book {
+          background: white;
           border: 1px solid #e5e7eb;
           border-radius: 6px;
           padding: 12px;
@@ -153,7 +100,7 @@ export default function HomePage() {
           flex-direction: column;
         }
 
-        .book-card img {
+        .book img {
           width: 100%;
           height: 260px;
           object-fit: cover;
@@ -161,20 +108,10 @@ export default function HomePage() {
           margin-bottom: 10px;
         }
 
-        .book-card h4 {
-          font-size: 15px;
-          margin: 5px 0;
-        }
-
-        .book-card p {
-          font-size: 13px;
-          color: #6b7280;
-        }
-
         .price {
-          font-weight: bold;
-          margin: 8px 0;
           color: #16a34a;
+          font-weight: bold;
+          margin: 6px 0;
         }
 
         .actions {
@@ -183,18 +120,18 @@ export default function HomePage() {
           gap: 10px;
         }
 
-        .actions button {
+        button {
           flex: 1;
           padding: 8px;
           border: none;
-          border-radius: 4px;
           cursor: pointer;
+          border-radius: 4px;
           font-weight: bold;
         }
 
-        .add-cart {
+        .cart {
           background: #2563eb;
-          color: #fff;
+          color: white;
         }
 
         .view {
@@ -204,8 +141,8 @@ export default function HomePage() {
         footer {
           background: #111827;
           color: #d1d5db;
-          padding: 30px;
           text-align: center;
+          padding: 30px;
           margin-top: 40px;
         }
       `}</style>
@@ -222,17 +159,16 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="hero">
-        <h1>Discover Books for Every Mind</h1>
+        <h1>Discover Books for Every Reader</h1>
         <p>
-          Explore hand-picked books across self-help, fiction, religious and kids
-          categories — delivered across Kenya.
+          Shop self-help, fiction, religious and kids books — delivered across Kenya.
         </p>
       </section>
 
       {/* CATEGORIES */}
       <section className="categories">
-        {categories.map(cat => (
-          <div className="category-card" key={cat.slug}>
+        {categories.map((cat) => (
+          <div key={cat.slug} className="category">
             <h3>{cat.name}</h3>
             <Link href={`/category/${cat.slug}`}>
               Browse {cat.name}
@@ -242,29 +178,58 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED BOOKS */}
-      <section className="section">
+      <section className="books">
         <h2>Featured Books</h2>
 
         <div className="grid">
-          {featuredBooks.map(book => (
-            <div className="book-card" key={book.id}>
-              <image src={book.img} alt={book.title} />
-              <h4>{book.title}</h4>
-              <p>{book.author}</p>
-              <p>{book.category}</p>
-              <div className="price">{book.price}</div>
-
-              <div className="actions">
-                <button className="add-cart">Add to Cart</button>
-                <button className="view">View</button>
-              </div>
+          <div className="book">
+            <img src="/atomic.webp" alt="Atomic Habits" />
+            <h4>Atomic Habits</h4>
+            <p>James Clear</p>
+            <div className="price">KSh 1,200</div>
+            <div className="actions">
+              <button className="cart">Add to Cart</button>
+              <button className="view">View</button>
             </div>
-          ))}
+          </div>
+
+          <div className="book">
+            <img src="/alchemist.jpeg" alt="The Alchemist" />
+            <h4>The Alchemist</h4>
+            <p>Paulo Coelho</p>
+            <div className="price">KSh 950</div>
+            <div className="actions">
+              <button className="cart">Add to Cart</button>
+              <button className="view">View</button>
+            </div>
+          </div>
+
+          <div className="book">
+            <img src="/purpose.webp" alt="Purpose Driven Life" />
+            <h4>Purpose Driven Life</h4>
+            <p>Rick Warren</p>
+            <div className="price">KSh 1,100</div>
+            <div className="actions">
+              <button className="cart">Add to Cart</button>
+              <button className="view">View</button>
+            </div>
+          </div>
+
+          <div className="book">
+            <img src="/diary.webp" alt="Diary of a Wimpy Kid" />
+            <h4>Diary of a Wimpy Kid</h4>
+            <p>Jeff Kinney</p>
+            <div className="price">KSh 850</div>
+            <div className="actions">
+              <button className="cart">Add to Cart</button>
+              <button className="view">View</button>
+            </div>
+          </div>
         </div>
       </section>
 
       <footer>
-        © {new Date().getFullYear()} BookStore Kenya. All rights reserved.
+        © {new Date().getFullYear()} BookStore Kenya
       </footer>
     </main>
   );
