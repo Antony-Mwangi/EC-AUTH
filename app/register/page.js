@@ -52,7 +52,7 @@ export default function RegisterPage() {
         </div>
         
         <h2 className="title">Create Account</h2>
-        <p className="subtitle">Join us today to start managing your notes securely.</p>
+        <p className="subtitle">Join us today.</p>
 
         {error && <div className="error-banner">{error}</div>}
 

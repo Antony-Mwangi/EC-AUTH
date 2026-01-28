@@ -20,29 +20,7 @@ export default function HomePage() {
           color: #111827;
         }
 
-        header {
-          background: white;
-          padding: 16px 32px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo {
-          font-size: 22px;
-          font-weight: bold;
-          color: #2563eb;
-          text-decoration: none;
-        }
-
-        nav a {
-          margin-left: 20px;
-          text-decoration: none;
-          color: #374151;
-          font-weight: 500;
-        }
-
+        /* HERO */
         .hero {
           padding: 60px 30px;
           text-align: center;
@@ -60,6 +38,7 @@ export default function HomePage() {
           margin: auto;
         }
 
+        /* CATEGORIES */
         .categories {
           padding: 40px 30px;
           display: grid;
@@ -81,6 +60,7 @@ export default function HomePage() {
           font-weight: bold;
         }
 
+        /* BOOKS */
         .books {
           padding: 40px 30px;
         }
@@ -137,25 +117,7 @@ export default function HomePage() {
         .view {
           background: #e5e7eb;
         }
-
-        footer {
-          background: #111827;
-          color: #d1d5db;
-          text-align: center;
-          padding: 30px;
-          margin-top: 40px;
-        }
       `}</style>
-
-      {/* HEADER */}
-      <header>
-        <Link href="/" className="logo">BookStore</Link>
-        <nav>
-          <Link href="/login">Login</Link>
-          <Link href="/register">Register</Link>
-          <Link href="/cart">Cart</Link>
-        </nav>
-      </header>
 
       {/* HERO */}
       <section className="hero">
@@ -227,10 +189,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <footer>
-        © {new Date().getFullYear()} BookStore Kenya
-      </footer>
     </main>
   );
 }
