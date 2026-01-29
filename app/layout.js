@@ -10,160 +10,184 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <style>{`
-  * {
-    box-sizing: border-box;
-  }
+          * {
+            box-sizing: border-box;
+          }
 
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f6f8;
-    color: #111827;
-  }
+          body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f8;
+            color: #111827;
+          }
 
-  a {
-    color: inherit;
-  }
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
 
-  
-  header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+          
+          header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+          }
 
-  .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #2563eb;
-    text-decoration: none;
-    white-space: nowrap;
-  }
+          .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+          }
 
-  nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+          nav {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+          }
 
-  nav a {
-    text-decoration: none;
-    color: #374151;
-    font-weight: 500;
-    font-size: 15px;
-  }
+          /* Normal nav links */
+          .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #374151;
+          }
 
-  nav a:hover {
-    color: #2563eb;
-  }
+          .nav-link:hover {
+            background: #f3f4f6;
+            color: #2563eb;
+          }
 
-  
-  main {
-    min-height: 80vh;
-    width: 100%;
-  }
+          /* Button-style links */
+          .nav-btn {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+          }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: #111827;
-    color: #d1d5db;
-    padding: 50px 24px 30px;
-    margin-top: 60px;
-  }
+          .nav-btn.primary {
+            background: #2563eb;
+            color: #ffffff;
+          }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-    margin-bottom: 30px;
-  }
+          .nav-btn.primary:hover {
+            background: #1d4ed8;
+          }
 
-  .footer-section h4 {
-    margin-bottom: 12px;
-    color: #ffffff;
-    font-size: 16px;
-  }
+          .nav-btn.outline {
+            border: 1px solid #2563eb;
+            color: #2563eb;
+          }
 
-  .footer-section p,
-  .footer-section a {
-    font-size: 14px;
-    color: #d1d5db;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 8px;
-    line-height: 1.6;
-  }
+          .nav-btn.outline:hover {
+            background: #eff6ff;
+          }
 
-  .footer-section a:hover {
-    color: #ffffff;
-  }
+          
+          main {
+            min-height: 80vh;
+            width: 100%;
+          }
 
-  .footer-bottom {
-    border-top: 1px solid #374151;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #9ca3af;
-  }
+          
+          footer {
+            background: #111827;
+            color: #d1d5db;
+            padding: 50px 24px 30px;
+            margin-top: 60px;
+          }
 
-  
-  @media (max-width: 640px) {
-    header {
-      padding: 14px 16px;
-      flex-direction: column;
-      align-items: flex-start;
-    }
+          .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 30px;
+          }
 
-    nav {
-      width: 100%;
-      justify-content: space-between;
-      gap: 14px;
-    }
+          .footer-section h4 {
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-size: 16px;
+          }
 
-    nav a {
-      font-size: 14px;
-    }
+          .footer-section p,
+          .footer-section a {
+            font-size: 14px;
+            color: #d1d5db;
+            display: block;
+            margin-bottom: 8px;
+            line-height: 1.6;
+          }
 
-    footer {
-      padding: 40px 16px 24px;
-    }
+          .footer-section a:hover {
+            color: #ffffff;
+          }
 
-    .footer-grid {
-      gap: 24px;
-    }
+          .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #9ca3af;
+          }
 
-    .footer-bottom {
-      font-size: 13px;
-    }
-  }
+          
+          @media (max-width: 640px) {
+            header {
+              flex-direction: column;
+              align-items: stretch;
+            }
 
-  
-  @media (min-width: 641px) and (max-width: 1024px) {
-    header {
-      padding: 16px 32px;
-    }
+            nav {
+              width: 100%;
+              justify-content: space-between;
+            }
 
-    footer {
-      padding: 50px 32px 30px;
-    }
-  }
-`}</style>
+            .nav-link,
+            .nav-btn {
+              flex: 1;
+              text-align: center;
+            }
 
+            footer {
+              padding: 40px 16px 24px;
+            }
+          }
+
+          
+          @media (min-width: 641px) and (max-width: 1024px) {
+            header {
+              padding: 16px 32px;
+            }
+
+            footer {
+              padding: 50px 32px 30px;
+            }
+          }
+        `}</style>
 
         
         <header>
-          <Link href="/" className="logo">BookStore</Link>
+          <Link href="/" className="logo">
+            BookStore
+          </Link>
 
           <nav>
-            <Link href="/">Home</Link>
-            <Link href="/register">Register</Link>
-            <Link href="/cart">Cart</Link>
-            <Link href="/login">Login</Link>
+            <Link href="/" className="nav-link">Home</Link>
+            <Link href="/cart" className="nav-link">Cart</Link>
+            <Link href="/register" className="nav-btn outline">Register</Link>
+            <Link href="/login" className="nav-btn primary">Login</Link>
           </nav>
         </header>
 
