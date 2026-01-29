@@ -10,95 +10,150 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <style>{`
-          * {
-            box-sizing: border-box;
-          }
+  * {
+    box-sizing: border-box;
+  }
 
-          body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6f8;
-            color: #111827;
-          }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #111827;
+  }
 
-          /* ===== HEADER ===== */
-          header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 16px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
+  a {
+    color: inherit;
+  }
 
-          .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2563eb;
-            text-decoration: none;
-          }
+  
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 
-          nav {
-            display: flex;
-            gap: 24px;
-          }
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2563eb;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-          nav a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-          }
+  nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-          nav a:hover {
-            color: #2563eb;
-          }
+  nav a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    font-size: 15px;
+  }
 
-          /* ===== MAIN ===== */
-          main {
-            min-height: 80vh;
-          }
+  nav a:hover {
+    color: #2563eb;
+  }
 
-          /* ===== FOOTER ===== */
-          footer {
-            background: #111827;
-            color: #d1d5db;
-            padding: 50px 40px 30px;
-            margin-top: 60px;
-          }
+  
+  main {
+    min-height: 80vh;
+    width: 100%;
+  }
 
-          .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-          }
+  /* ===== FOOTER ===== */
+  footer {
+    background: #111827;
+    color: #d1d5db;
+    padding: 50px 24px 30px;
+    margin-top: 60px;
+  }
 
-          .footer-section h4 {
-            margin-bottom: 12px;
-            color: #ffffff;
-          }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-bottom: 30px;
+  }
 
-          .footer-section p,
-          .footer-section a {
-            font-size: 14px;
-            color: #d1d5db;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 6px;
-          }
+  .footer-section h4 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 16px;
+  }
 
-          .footer-section a:hover {
-            color: #ffffff;
-          }
+  .footer-section p,
+  .footer-section a {
+    font-size: 14px;
+    color: #d1d5db;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
 
-          .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #9ca3af;
-          }
-        `}</style>
+  .footer-section a:hover {
+    color: #ffffff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #9ca3af;
+  }
+
+  
+  @media (max-width: 640px) {
+    header {
+      padding: 14px 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav {
+      width: 100%;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    nav a {
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 40px 16px 24px;
+    }
+
+    .footer-grid {
+      gap: 24px;
+    }
+
+    .footer-bottom {
+      font-size: 13px;
+    }
+  }
+
+  
+  @media (min-width: 641px) and (max-width: 1024px) {
+    header {
+      padding: 16px 32px;
+    }
+
+    footer {
+      padding: 50px 32px 30px;
+    }
+  }
+`}</style>
+
 
         
         <header>
