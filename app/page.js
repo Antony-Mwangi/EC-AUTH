@@ -13,111 +13,198 @@ export default function HomePage() {
   return (
     <main>
       <style>{`
-        body {
-          margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
-          background: #f5f6f8;
-          color: #111827;
-        }
+  * {
+    box-sizing: border-box;
+  }
 
-        /* HERO */
-        .hero {
-          padding: 60px 30px;
-          text-align: center;
-          background: white;
-        }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #111827;
+  }
 
-        .hero h1 {
-          font-size: 34px;
-          margin-bottom: 10px;
-        }
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-        .hero p {
-          color: #6b7280;
-          max-width: 600px;
-          margin: auto;
-        }
+  /* HERO */
+  .hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: white;
+  }
 
-        /* CATEGORIES */
-        .categories {
-          padding: 40px 30px;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 20px;
-        }
+  .hero h1 {
+    font-size: clamp(26px, 4vw, 40px);
+    margin-bottom: 12px;
+  }
 
-        .category {
-          background: white;
-          padding: 30px;
-          border-radius: 8px;
-          border: 1px solid #e5e7eb;
-          text-align: center;
-        }
+  .hero p {
+    color: #6b7280;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-        .category a {
-          text-decoration: none;
-          color: #2563eb;
-          font-weight: bold;
-        }
+  
+  .categories {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
 
-        /* BOOKS */
-        .books {
-          padding: 40px 30px;
-        }
+  .category {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 20px;
-        }
+  .category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
 
-        .book {
-          background: white;
-          border: 1px solid #e5e7eb;
-          border-radius: 6px;
-          padding: 12px;
-          display: flex;
-          flex-direction: column;
-        }
+  .category h3 {
+    margin-bottom: 10px;
+  }
 
-        .book img {
-          width: 100%;
-          height: 260px;
-          object-fit: cover;
-          border-radius: 4px;
-          margin-bottom: 10px;
-        }
+  .category a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 15px;
+  }
 
-        .price {
-          color: #16a34a;
-          font-weight: bold;
-          margin: 6px 0;
-        }
+  
+  .books {
+    padding: 40px 20px 60px;
+  }
 
-        .actions {
-          margin-top: auto;
-          display: flex;
-          gap: 10px;
-        }
+  .books h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(22px, 3vw, 30px);
+  }
 
-        button {
-          flex: 1;
-          padding: 8px;
-          border: none;
-          cursor: pointer;
-          border-radius: 4px;
-          font-weight: bold;
-        }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
 
-        .cart {
-          background: #2563eb;
-          color: white;
-        }
+  .book {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+  }
 
-        .view {
-          background: #e5e7eb;
-        }
-      `}</style>
+  .book img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .book h4 {
+    margin: 4px 0;
+  }
+
+  .book p {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .price {
+    color: #16a34a;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 15px;
+  }
+
+  .actions {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .cart {
+    background: #2563eb;
+    color: white;
+  }
+
+  .cart:hover {
+    background: #1d4ed8;
+  }
+
+  .view {
+    background: #e5e7eb;
+  }
+
+  .view:hover {
+    background: #d1d5db;
+  }
+
+  
+  @media (max-width: 640px) {
+    .hero {
+      padding: 60px 16px;
+    }
+
+    .categories {
+      padding: 30px 16px;
+    }
+
+    .books {
+      padding: 30px 16px 50px;
+    }
+
+    .book img {
+      height: 200px;
+    }
+
+    .actions {
+      flex-direction: column;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .hero {
+      padding: 70px 30px;
+    }
+
+    .book img {
+      height: 220px;
+    }
+  }
+`}</style>
+
 
       {/* HERO */}
       <section className="hero">
